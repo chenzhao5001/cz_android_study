@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".test_1_activity"
+            android:name=".Test_1_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

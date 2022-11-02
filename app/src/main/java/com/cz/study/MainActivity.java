@@ -2,6 +2,7 @@ package com.cz.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,13 +19,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getIntent();
     }
 
     @OnClick(R.id.btn1)
     void onClick(View view) {
         Log.i(tag,"onClick");
-        if(view.getId() == R.id.btn1) {
-            Toast.makeText(this,"test",Toast.LENGTH_SHORT).show();
+        switch(view.getId()) {
+            case R.id.btn1: {
+                Toast.makeText(this,"btn1",Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(this,Test_1_activity.class);
+                it.putExtra("a","cz");
+                startActivity(it);
+                break;
+            }
+            case R.id.btn2: {
+                Toast.makeText(this,"btn2",Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.btn3: {
+                Toast.makeText(this,"btn3",Toast.LENGTH_SHORT).show();
+                break;
+            }
         }
         // TODO call server...
     }
