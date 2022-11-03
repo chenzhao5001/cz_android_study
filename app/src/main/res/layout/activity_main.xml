@@ -64,4 +64,9 @@
             android:layout_height="match_parent"
             android:text="hello world3" />
     </com.cz.study.view.MyBanner>
+    <Button
+        android:id="@+id/player_test_btn"
+        android:text="播放器 test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

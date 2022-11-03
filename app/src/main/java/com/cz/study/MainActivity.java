@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import com.cz.study.services.MyService1;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,10 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        getIntent();
     }
 
-    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4})
+    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn})
 //    @OnClick
     void onClick(View view) {
         switch(view.getId()) {
@@ -48,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn4: {
                 Toast.makeText(this,"btn4",Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.player_test_btn: {
+                startActivity(new Intent(this,VideoActivity.class));
                 break;
             }
         }
