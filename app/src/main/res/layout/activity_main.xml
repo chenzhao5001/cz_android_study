@@ -69,4 +69,9 @@
         android:text="播放器 test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/player_mk_dir"
+        android:text="创建目录"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
