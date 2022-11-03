@@ -10,9 +10,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     static String TAG = "MainActivity";
@@ -24,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn,R.id.player_mk_dir})
+    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn,R.id.player_mk_dir,
+            R.id.okhttp_btn})
 //    @OnClick
     void onClick(View view) {
         switch(view.getId()) {
@@ -85,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
                 } catch (Exception e) {
                     Log.e(TAG, "onClick: " + e.getMessage());
+                }
+            }
+            case R.id.okhttp_btn: {
+//                OkHttpClient client = new OkHttpClient();
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url("https://baidu.com")
+                        .build();
+
+                try {
+                    Response response = client.newCall(request).execute();
+                    Log.i(TAG, response.body().toString());
+                } catch (Exception e) {
+
                 }
             }
         }
