@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.cz.study.services.MyService1;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -22,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         getIntent();
     }
 
-    @OnClick(R.id.btn1)
+    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4})
+//    @OnClick
     void onClick(View view) {
-        Log.i(tag,"onClick");
         switch(view.getId()) {
             case R.id.btn1: {
                 Toast.makeText(this,"btn1",Toast.LENGTH_SHORT).show();
@@ -39,9 +41,20 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn3: {
                 Toast.makeText(this,"btn3",Toast.LENGTH_SHORT).show();
+                final Intent intent = new Intent();
+                intent.setAction("com.cz.study.services.MyService1");
+                startService(intent);
+                break;
+            }
+            case R.id.btn4: {
+                Toast.makeText(this,"btn4",Toast.LENGTH_SHORT).show();
                 break;
             }
         }
-        // TODO call server...
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
