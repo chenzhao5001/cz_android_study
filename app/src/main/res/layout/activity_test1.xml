@@ -12,17 +12,24 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             tools:ignore="MissingConstraints" />
-    <TextView
-        android:text="准备替换"
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:text="替换"
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/linear_test1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="准备替换"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:text="替换"
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
 </LinearLayout>
