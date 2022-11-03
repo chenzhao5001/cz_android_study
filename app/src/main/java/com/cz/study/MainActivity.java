@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn,R.id.player_mk_dir,
-            R.id.okhttp_btn})
+            R.id.okhttp_btn,R.id.sqlite_btn})
 //    @OnClick
     void onClick(View view) {
         switch(view.getId()) {
@@ -60,13 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case R.id.player_mk_dir: {
-                //获取SD卡的路径
-//                String path = MyApplication.getContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).getPath();
-
-                //getFilesDir()获取你app的内部存储空间
-//                File Folder = new File(MyApplication.getContext().getFilesDir(), "newFolder");
-
-
                 try {
                     String appHome = Environment.getExternalStorageDirectory().getAbsolutePath()+"/myApp";
                     File folder = new File(appHome);
@@ -105,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 }
+            }
+            case R.id.sqlite_btn: {
+
             }
         }
     }
