@@ -4,34 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
     <Button
         android:id="@+id/btn1"
-        android:text="test1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="test1" />
 
     <Button
         android:id="@+id/btn2"
-        android:text="test2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="test2" />
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn3"
-            android:text="create_service"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="create_service" />
+
         <Button
             android:id="@+id/btn4"
-            android:text="destroy_service"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="destroy_service" />
     </LinearLayout>
+
+
+    <com.cz.study.view.MyBanner
+        android:background="#ff0000"
+        android:id="@+id/view_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="#00ff00"
+            android:gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="match_parent"
+            android:text="hello world1" />
+        <TextView
+            android:background="#fff000"
+            android:gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="match_parent"
+            android:text="hello world2" />
+        <TextView
+            android:background="#0000ff"
+            android:gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="match_parent"
+            android:text="hello world3" />
+    </com.cz.study.view.MyBanner>
 </LinearLayout>
