@@ -3,11 +3,15 @@ package com.cz.study;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.cz.sqlite.DbManger;
+import com.cz.sqlite.MySqliteHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,12 +24,14 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     static String TAG = "MainActivity";
+    MySqliteHelper sqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        sqliteHelper = DbManger.getInstance(this);
     }
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn,R.id.player_mk_dir,
@@ -100,9 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             case R.id.sqlite_btn: {
-
+                createDb(view);
             }
         }
+    }
+
+    void createDb(View view) {
+        // 都是可读可写，特殊情况有区别
+//        sqliteHelper.getReadableDatabase()
+        SQLiteDatabase db = sqliteHelper.getWritableDatabase();
+
     }
 
     @Override
