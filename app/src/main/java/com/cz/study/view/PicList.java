@@ -1,4 +1,10 @@
 package com.cz.study.view;
 
-public class PicList {
+import android.content.Context;
+import android.widget.ListView;
+
+public class PicList extends ListView {
+    public PicList(Context context) {
+        super(context);
+    }
 }

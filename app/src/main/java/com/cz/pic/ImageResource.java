@@ -6,7 +6,7 @@ import java.util.List;
 public class ImageResource {
     static ImageResource imageResource = null;
 
-    static ImageResource getInstance() {
+    public static ImageResource getInstance() {
         if (imageResource == null) {
             imageResource = new ImageResource();
         }

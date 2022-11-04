@@ -1,10 +1,22 @@
 package com.cz.study.view;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class picItemAdapter extends BaseAdapter {
+import java.util.ArrayList;
+import java.util.List;
+
+public class PicItemAdapter extends BaseAdapter {
+    List<PicData> mPicDataList = null;
+    Context mContext = null;
+
+    public PicItemAdapter(List<PicData> dataList, Context context) {
+        mPicDataList = dataList;
+        mContext = context;
+    }
+
     @Override
     public int getCount() {
         return 0;
