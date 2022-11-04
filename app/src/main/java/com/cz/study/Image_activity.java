@@ -33,8 +33,8 @@ public class Image_activity extends AppCompatActivity {
 
         List<PicData> mListPicData = new ArrayList<>();
         List<String> list = ImageResource.getInstance().getResourceList();
-        for (String item: list) {
-            mListPicData.add(new PicData(item,"test"));
+        for(int i = 0; i < list.size(); i++) {
+            mListPicData.add(new PicData(list.get(i),"test"+ (i+1)));
         }
         mAdapter = new PicItemAdapter(mListPicData,this);
         mListView.setAdapter(mAdapter);
