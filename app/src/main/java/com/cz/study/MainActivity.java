@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.player_test_btn,R.id.player_mk_dir,
-            R.id.okhttp_btn,R.id.sqlite_btn,R.id.sqlite_create_table})
+            R.id.okhttp_btn,R.id.sqlite_btn,R.id.sqlite_create_table,R.id.show_list_btn})
 //    @OnClick
     void onClick(View view) {
         switch(view.getId()) {
@@ -110,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.sqlite_create_table: {
                 DbManger.getInstance(this).createTable();
+            }
+            case R.id.show_list_btn: {
+                startActivity(new Intent(this,Image_activity.class));
             }
         }
     }
