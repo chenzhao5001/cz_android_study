@@ -7,4 +7,9 @@ public class PicData {
         mPicSrc = picSrc;
         mContent = content;
     }
+
+    void foo() {
+//        Integer i = 200;
+//        i = 300;
+    }
 }

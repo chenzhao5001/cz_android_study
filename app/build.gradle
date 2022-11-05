@@ -8,6 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
+        //app包名
         applicationId "com.cz.study"
         minSdk 21
         targetSdk 32
@@ -34,7 +35,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
