@@ -39,7 +39,6 @@
             android:text="destroy_service" />
     </LinearLayout>
 
-
     <com.cz.study.view.MyBanner
         android:background="#ff0000"
         android:id="@+id/view_group"
@@ -80,10 +79,9 @@
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/okhttp_btn"
-            android:text="okhttp"
+            android:text="ListView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <Button
             android:id="@+id/sqlite_btn"
             android:text="sqlite_btn"

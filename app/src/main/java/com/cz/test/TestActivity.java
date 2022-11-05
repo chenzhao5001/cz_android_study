@@ -7,12 +7,17 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
+import com.cz.study.R;
+
 public class TestActivity extends Activity implements View.OnLongClickListener, View.OnClickListener
 {
+    Button okhttpBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Button button = new Button(this);
+        setContentView(R.layout.activity_new);
+        okhttpBtn = findViewById(R.id.ok_http_btn);
+        okhttpBtn.setOnClickListener(this);
     }
 
     @Override
@@ -22,6 +27,13 @@ public class TestActivity extends Activity implements View.OnLongClickListener, 
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ok_http_btn:
+                okHttpTest();
+                break;
+        }
+    }
+    void okHttpTest() {
 
     }
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.cz.sqlite.DbManger;
 import com.cz.sqlite.MySqliteHelper;
+import com.cz.test.TestActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn2: {
                 Toast.makeText(this,"btn2",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, TestActivity.class));
                 break;
             }
             case R.id.btn3: {
