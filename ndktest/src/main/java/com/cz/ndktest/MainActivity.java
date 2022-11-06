@@ -23,4 +23,5 @@ public class MainActivity extends AppCompatActivity {
 
     public native String stringFromJni();
     public native int getIntfromJNI();
+    public native void setString(String str);
 }
