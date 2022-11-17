@@ -3,7 +3,6 @@ package com.cz.framework.utils;
 import android.text.TextUtils;
 import android.util.Log;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +13,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class logUtils {
+public class LogUtils {
     final static String TAG = "UtilsLog";
     private static SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss" );
     public static void i(String text) {
