@@ -16,3 +16,4 @@ rootProject.name = "My Application"
 include ':app'
 include ':ndktest'
 include ':studyproject'
+include ':mylibrary'
