@@ -1,10 +1,13 @@
 package com.cz.framework.manager;
 
 import android.media.MediaPlayer;
+import android.os.Handler;
 
 import com.cz.framework.utils.LogUtils;
 
 import java.io.IOException;
+
+
 
 public class MediaPlayerManager {
 
@@ -13,7 +16,19 @@ public class MediaPlayerManager {
     public static final int MEDIA_STATUS_STOP = 2;
 
     public int currentStatus = MEDIA_STATUS_STOP;
-    private MediaPlayer mMediaPlayer = null;
+
+    private MediaPlayer mMediaPlayer;
+
+    private static final int H_PROGRESS = 1000;
+    private OnMusicProgressListener onMusicProgressListener;
+
+    /***
+     *  积算进度
+     *  1.开始播放的时候开始积算时常
+     *  2.将进度积算结果对外抛出
+     */
+    private Handler mHandle = new Handler()   {
+    };
 
     public MediaPlayerManager() {
         mMediaPlayer = new MediaPlayer();
@@ -26,6 +41,7 @@ public class MediaPlayerManager {
             mMediaPlayer.prepare();
             mMediaPlayer.start();
             currentStatus = MEDIA_STATUS_PLAY;
+
 
         } catch (IOException e) {
             LogUtils.e(e.toString());
@@ -78,7 +94,11 @@ public class MediaPlayerManager {
         mMediaPlayer.setOnErrorListener(listener);
     }
 
-    public void setOnProgressListener(MediaPlayer.OnErrorListener listener) {
+    public void setOnProgressListener(OnMusicProgressListener listener) {
+        onMusicProgressListener = listener;
+    }
 
+    public interface OnMusicProgressListener{
+        void onProgress();
     }
 }
