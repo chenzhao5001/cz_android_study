@@ -2,6 +2,9 @@ package com.cz.framework.manager;
 
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.Message;
+
+import androidx.annotation.NonNull;
 
 import com.cz.framework.utils.LogUtils;
 
@@ -27,8 +30,23 @@ public class MediaPlayerManager {
      *  1.开始播放的时候开始积算时常
      *  2.将进度积算结果对外抛出
      */
-    private Handler mHandle = new Handler()   {
-    };
+    private Handler mHandle = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            switch (msg.what) {
+                case H_PROGRESS:
+                    if(onMusicProgressListener != null) {
+                        int currentPosition = getCurrentPosition();
+                        onMusicProgressListener.onProgress(currentPosition);
+                        mHandle.sendEmptyMessageDelayed(H_PROGRESS,1000);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    });
 
     public MediaPlayerManager() {
         mMediaPlayer = new MediaPlayer();
@@ -41,6 +59,7 @@ public class MediaPlayerManager {
             mMediaPlayer.prepare();
             mMediaPlayer.start();
             currentStatus = MEDIA_STATUS_PLAY;
+            mHandle.sendEmptyMessage(H_PROGRESS);
 
 
         } catch (IOException e) {
@@ -57,17 +76,20 @@ public class MediaPlayerManager {
         if (isPlaying()) {
             mMediaPlayer.pause();
             currentStatus = MEDIA_STATUS_PAUSE;
+            mHandle.removeMessages(H_PROGRESS);
         }
     }
 
     public void continuePlay() {
         mMediaPlayer.start();
         currentStatus = MEDIA_STATUS_PLAY;
+        mHandle.sendEmptyMessage(H_PROGRESS);
     }
 
     public void stopPlay() {
         mMediaPlayer.stop();
         currentStatus = MEDIA_STATUS_STOP;
+        mHandle.removeMessages(H_PROGRESS);
     }
 
     public int getCurrentPosition() {
@@ -99,6 +121,6 @@ public class MediaPlayerManager {
     }
 
     public interface OnMusicProgressListener{
-        void onProgress();
+        void onProgress(int progress);
     }
 }
