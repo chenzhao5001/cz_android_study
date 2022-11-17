@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class LogUtils {
     final static String TAG = "UtilsLog";
-    private static SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss" );
+    private static SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
     public static void i(String text) {
         if(!TextUtils.isEmpty(text)) {
             Log.i(TAG, text);
@@ -34,7 +34,7 @@ public class LogUtils {
     private static void writeToFile(String text) {
         String filePath = "/sdcard/Meet/";
         String fileName = filePath + "Meet.log";
-        String log = mSimpleDateFormat.format(new Date()) + " " + text;
+        String log = mSimpleDateFormat.format(new Date()) + " " + text + "\n";
         File path = new File(filePath);
         if(!path.exists()) {
             path.mkdir();
@@ -55,7 +55,6 @@ public class LogUtils {
         } finally {
             if(bufferedWriter != null) {
                 try {
-                    fileOutputStream.close();
                     bufferedWriter.close();
                 } catch (IOException e) {
                     e.printStackTrace();
