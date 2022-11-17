@@ -32,7 +32,7 @@ public class logUtils {
         }
     }
 
-    public static void writeToFile(String text) {
+    private static void writeToFile(String text) {
         String filePath = "/sdcard/Meet/";
         String fileName = filePath + "Meet.log";
         String log = mSimpleDateFormat.format(new Date()) + " " + text;
