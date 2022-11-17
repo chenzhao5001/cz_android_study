@@ -8,7 +8,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
     final String TAG = "MainActivity_abc";
     static {
-       System.loadLibrary("ndktest");
+       System.loadLibrary("ndkTest");
        System.loadLibrary("newTest");
     }
 
@@ -24,4 +24,6 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJni();
     public native int getIntfromJNI();
     public native void setString(String str);
+    public native String fooObject(MainActivity mainActivity);
+
 }
