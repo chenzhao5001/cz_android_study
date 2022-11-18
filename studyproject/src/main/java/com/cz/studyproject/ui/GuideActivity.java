@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.cz.framework.base.BasePageAdapter;
 import com.cz.studyproject.R;
 
 import java.sql.ClientInfoStatus;
@@ -28,6 +29,7 @@ public class GuideActivity extends AppCompatActivity {
     private View view3;
 
     private List<View> mPageList = new ArrayList<>();
+    private BasePageAdapter mBasePageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +47,18 @@ public class GuideActivity extends AppCompatActivity {
         iv_guide_point_3 = (ImageView) findViewById(R.id.iv_guide_point_3);
 
         view1 = View.inflate(this,R.layout.layout_pager_guide_1,null);
-        view2 = View.inflate(this,R.layout.layout_pager_guide_1,null);
-        view3 = View.inflate(this,R.layout.layout_pager_guide_1,null);
+        view2 = View.inflate(this,R.layout.layout_pager_guide_2,null);
+        view3 = View.inflate(this,R.layout.layout_pager_guide_3,null);
 
         mPageList.add(view1);
         mPageList.add(view2);
         mPageList.add(view3);
+
+        // 预加载，设置缓存
+        mViewPager.setOffscreenPageLimit(mPageList.size());
+
+        mBasePageAdapter = new BasePageAdapter(mPageList);
+        mViewPager.setAdapter(mBasePageAdapter);
+
     }
 }

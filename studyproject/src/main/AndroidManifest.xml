@@ -9,12 +9,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
-        <activity android:name=".ui.GuideActivity" />
+        android:supportsRtl="true"
+        android:largeHeap = "true"
+        android:hardwareAccelerated = "false">
+        <activity android:name=".ui.IndexActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".ui.IndexActivity"
+            android:name=".ui.GuideActivity"
             android:exported="true"
             android:theme="@style/Theme.AppThemeFull">
             <intent-filter>
